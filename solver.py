@@ -1,16 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+import chromedriver_autoinstaller
 from datetime import date
 
 #a chromedriver elérési út megadása
-service = Service("chromedriver/chromedriver.exe")
 
 #így nem zárja be a megnyitott oldalt pár másodperc múlva
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
 #böngésző megadása
-driver = webdriver.Chrome(service=service, options=options)
+chromedriver_autoinstaller.install()
+driver = webdriver.Chrome(options=options)
 
 
 def openPage():
